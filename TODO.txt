@@ -1,0 +1,9 @@
+* Menu
+	- [1] Add Contacts (categories - dad/mom)
+	- [2] Remove Contacts
+	- [3] Search Contacts
+	- [4] Update Contacts
+	- [5] Show All Contacts	
+
+
+* Using mysql connector
