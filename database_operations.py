@@ -56,13 +56,11 @@ def remove_contacts():
     print("")
     name = input("Name (to remove): ").strip().title()
     if re.search(r"\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+",name):
-        #Check or name existence
         cursor.execute(f"SELECT * FROM user_data")
         result_table = cursor.fetchone()
 
 
         cursor.nextset()
-        #Checking it table is empty
         cursor.execute(f"SELECT * FROM user_data WHERE name = '{name}'")
         result_name = cursor.fetchall()
 
