@@ -40,7 +40,6 @@ def add_contacts():
 
     phone_number = f'{country_code} {phone_number}'
 
-    #Adding the data to the table
     cursor.execute(f"""
     INSERT INTO user_data (name, phone,category)
     VALUES ('{name}','{phone_number}','{category}'); 
