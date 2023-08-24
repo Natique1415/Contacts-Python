@@ -16,6 +16,6 @@
 * Provide a powerful **GUI-like app** (maybe using Tkinter)
 * Reduce LOC (lines of code).
 
-## Update 1
+## Update 1 (24/08/2023)
 * The code now makes the required **database** and the **tables**.
-* Error checking for the creation of above-given parameters has also been added.
+* Error checking for the creation of the above-given parameters has also been added.
