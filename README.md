@@ -15,3 +15,7 @@
 * Provide the user with more flexibility with their contacts app.
 * Provide a powerful **GUI-like app** (maybe using Tkinter)
 * Reduce LOC (lines of code).
+
+## Update 1
+* The code now makes the required **database** and the **tables**.
+* Error checking for the creation of above-given parameters has also been added.
