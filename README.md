@@ -7,12 +7,12 @@
 * [Rich](https://rich.readthedocs.io/en/stable/introduction.html)
 
 ## Limitations  
-* It is based on the command link (so yeah)
+* It is based on the command line (so yeah)
 * Provides basic features for contact manipulation.
 * Little Scope for error checking or verifying the numbers or country code given to it.
 
 ## Future Improvements
-* Provide the user with more flexibility with their contacts app.
+* Provide the user with more flexibility with their contacts app. (Kindly suggest, If you have something in mind)
 * Provide a powerful **GUI-like app** (maybe using Tkinter)
 * Reduce LOC (lines of code).
 
