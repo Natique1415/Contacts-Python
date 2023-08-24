@@ -4,7 +4,7 @@ import sys
 
 
 def display_options():
-    options = ["[A]","[R]","[S]","[U]","[SA]","[Q]"]
+    options = ["[A/a]","[R/r]","[S/s]","[U/u]","[SA/sa]","[Q/q]"]
     actions = ["Add Contacts","Remove Contacts","Search Contacts","Update Contacts","Show All Contacts","Exit"]
     print("")
     print(tabulate({"Options":options,"Actions": actions}, headers="keys",tablefmt="grid",colalign=("center",)))
