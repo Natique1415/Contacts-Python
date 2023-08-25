@@ -29,10 +29,7 @@ def manage_db(config):
                 db.commit()
                 cursor.close()
             except mysql.connector.Error as create_err:
-                sys.exit(
-                    "An error occurred while creating the 'contacts' database:",
-                    create_err,
-                )
+                sys.exit(f"An error occurred while creating the 'contacts' database: {create_err}")
         else:
             sys.exit(f"Error {err}")
     finally:
