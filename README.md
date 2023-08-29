@@ -12,7 +12,7 @@
 ## Limitations  
 * It is based on the command line (so yeah)
 * Provides basic features for contact manipulation.
-* Little Scope for error checking or verifying the numbers or country code given to it.
+* Little Scope for error checking or verifying the numbers or country code provided to it.
 
 
 ## Future Improvements
