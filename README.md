@@ -22,9 +22,13 @@
 
 ## Update 1 (24/08/2023)
 * The code now makes the required **database** and the **tables**.
-* Error checking for the creation of the above-given parameters has also been added.
+* Error checking for creating the above-given parameters has also been added.
 
 
 ## Update 2 (24/08/2023)
 * Added **check_table_empty()** and **check_name_exist(name: str)** to shorten the code.
 * **show_all()** will first check if the table is **empty** before unpacking the variables (to avoid unpacking errors).
+
+
+## Update 3 (29/08/2023)
+* Added **close_server** function to close the SQL server when the user chooses to quit the application.
