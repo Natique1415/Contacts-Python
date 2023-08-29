@@ -52,6 +52,9 @@ def create_table(config):
     db.commit()
     cursor.close()
 
+def close_server():
+    db.close()
+
 
 def check_table_empty():
     cursor = db.cursor()

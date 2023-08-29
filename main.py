@@ -1,4 +1,4 @@
-from database_operations import add_contacts,remove_contacts,search_contacts,update_number,show_all
+from database_operations import close_server,add_contacts,remove_contacts,search_contacts,update_number,show_all
 from tabulate import tabulate
 import sys
 
@@ -27,6 +27,7 @@ def verify_options():
         elif action == "Q":
             print("")
             print("Cya Again Later :)")
+            close_server()
             sys.exit("")
         else:
             print("")
