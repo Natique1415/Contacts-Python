@@ -67,7 +67,7 @@ def check_table_empty():
 
 def check_name_exist(name: str):
     cursor = db.cursor()
-    cursor.execute(f"SELECT * FROM user_data WHERE name = '{name}'")
+    cursor.execute(f"SELECT * FROM user_data WHERE name = '{name}';")
     try:
         return cursor.fetchall()
     finally:
@@ -137,7 +137,7 @@ def remove_contacts():
             print("")
 
         else:
-            cursor.execute(f"DELETE FROM user_data WHERE name = '{name}'")
+            cursor.execute(f"DELETE FROM user_data WHERE name = '{name}';")
             db.commit()
             cursor.close()
 
