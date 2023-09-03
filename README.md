@@ -4,7 +4,7 @@
 
 ## Libraries
 * [MySQL](https://www.mysql.com/)
-* [mMsql Connector](https://pypi.org/project/mysql-connector-python/)
+* [Mysql Connector](https://pypi.org/project/mysql-connector-python/)
 * [Rich](https://rich.readthedocs.io/en/stable/introduction.html)
 * [Tabulate](https://pypi.org/project/tabulate/)
 
