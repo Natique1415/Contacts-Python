@@ -26,7 +26,7 @@ def verify_options():
             show_all()
         elif action == "Q":
             print("")
-            print("Cya Again Later :)")
+            print("See you Again Later :)")
             close_server()
             sys.exit("")
         else:
