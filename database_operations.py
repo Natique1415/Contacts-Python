@@ -32,25 +32,6 @@ db.commit()
 cursor.close()
 
 
-
-def check_table_empty():
-    cursor = db.cursor()
-    cursor.execute(f"SELECT * FROM user_data")
-    try:
-        return cursor.fetchone()
-    finally:
-        cursor.close()
-
-
-def check_name_exist(name: str):
-    cursor = db.cursor()
-    cursor.execute(f"SELECT * FROM user_data WHERE name = '{name}';")
-    try:
-        return cursor.fetchall()
-    finally:
-        cursor.close()
-
-
 def add_contacts():
     cursor = db.cursor()
     cursor.execute(f"USE contacts;")
