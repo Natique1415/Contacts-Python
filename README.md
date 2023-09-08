@@ -28,7 +28,6 @@
 
 
 ## Update 2 (24/08/2023)
-* Added **check_table_empty()** and **check_name_exist(name: str)** to shorten the code,
 * **show_all()** will first check if the table is **empty** before unpacking the variables (to avoid unpacking errors).
 
 
