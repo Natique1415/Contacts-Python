@@ -1,11 +1,14 @@
 from database_operations import close_server,add_contacts,remove_contacts,search_contacts,update_number,show_all
 from tabulate import tabulate
+import pyfiglet
 import sys
+import os
 
 
 def display_options():
-    options = ["[A/a]","[R/r]","[S/s]","[U/u]","[SA/sa]","[Q/q]"]
-    actions = ["Add Contacts","Remove Contacts","Search Contacts","Update Contacts","Show All Contacts","Exit"]
+    print(pyfiglet.figlet_format("PyContacts",font = "big"))
+    options = ["[A/a]","[R/r]","[S/s]","[U/u]","[SA/sa]","[CLS/cls]","[Q/q]"]
+    actions = ["Add Contacts","Remove Contacts","Search Contacts","Update Contacts","Show All Contacts","Clear Terminal","Exit"]
     print("")
     print(tabulate({"Options":options,"Actions": actions}, headers="keys",tablefmt="grid",colalign=("center",)))
     print("")
@@ -29,6 +32,9 @@ def verify_options():
             print("See you Again Later :)")
             close_server()
             sys.exit("")
+        elif action == "CLS":
+            os.system("cls")
+            display_options()
         else:
             print("")
             print("Invalid Action,Try Again!")
