@@ -1,4 +1,4 @@
-from database_operations import close_server,add_contacts,remove_contacts,search_contacts,update_number,show_all,country_code
+from database_operations import close_server,add_contacts,remove_contacts,search_contacts,update_number,show_all,country_code,country_code_table
 import pyfiglet
 from tabulate import tabulate
 import sys
@@ -29,6 +29,7 @@ def verify_options():
             show_all()
         elif action == "CC":
             country_code()
+            country_code_table()
         elif action == "Q":
             print("")
             print("See you Again Later :)")
