@@ -23,6 +23,14 @@ cursor.execute(f'CREATE DATABASE IF NOT EXISTS {config["database"]};')
 cursor.execute(f"USE {config['database']};")
 cursor.execute(
     """
+    CREATE TABLE IF NOT EXISTS code_count(
+        code VARCHAR(255) PRIMARY KEY,
+        count INT
+    );            
+    """
+)
+cursor.execute(
+    """
     CREATE TABLE IF NOT EXISTS user_data(
         name TEXT,
         code TEXT,
@@ -254,6 +262,26 @@ def country_code():
     print("")
 
 
+def country_code_table():
+    cursor = db.cursor()
+    cursor.execute(
+    '''
+            SELECT code, count(*) as count        
+            FROM user_data
+            GROUP BY code;
+    ''')
+    result = cursor.fetchall()
+
+    for code,count in result:
+        cursor.execute('''
+        INSERT INTO code_count (code, count)
+        VALUES (%s, %s)
+        ON DUPLICATE KEY UPDATE count = count + %s;
+    ''', (code, count, count))
+    db.commit()
+    cursor.close()
+
+
 
 def close_server():
     db.close()
@@ -265,3 +293,4 @@ if __name__ == "__main__":
     update_number()
     show_all()
     country_code()
+    country_code_table()
