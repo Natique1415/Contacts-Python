@@ -7,7 +7,7 @@ import os
 
 def display_options():
     print(pyfiglet.figlet_format("PyContacts",font = "big"))
-    options = ["[A/a]","[R/r]","[S/s]","[U/u]","[SA/sa]","[CC/cc]","[CLS/cls]","[Q/q]"]
+    options = ["[A/a]","[R/r]","[SE/se]","[U/u]","[SA/sa]","[CC/cc]","[CLS/cls]","[Q/q]"]
     actions = ["Add Contacts","Remove Contacts","Search Contacts","Update Contacts","Show All Contacts","Country Code Count","Clear Terminal","Exit"]
     print("")
     print(tabulate({"Options":options,"Actions": actions}, headers="keys",tablefmt="grid",colalign=("center",)))
@@ -21,7 +21,7 @@ def verify_options():
             add_contacts()
         elif action == "R":
             remove_contacts()
-        elif action == "S":
+        elif action == "SE":
             search_contacts()
         elif action == "U":
             update_number()
