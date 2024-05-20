@@ -43,5 +43,5 @@
 * Now you can type **cls** and clear the terminal whenever you feel the need to do so.
 
 
-### Minor Update 1 (08/09/2023)
+## Update 5 (08/09/2023)
 * With the help of the **pyfiglet** library, Added a attractive banner called **Pycontacts**.
