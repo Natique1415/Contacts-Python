@@ -10,10 +10,12 @@
 * [Pyfiglet ](https://pypi.org/project/pyfiglet/0.7/)
 
 
+
 ## Limitations  
 * It is based on the command line (so yeah),
 * Provides basic features for contact manipulation,
 * Little Scope for error checking or verifying the numbers or country code provided to it.
+
 
 
 ## Future Improvements
@@ -22,13 +24,16 @@
 * Reduce overall LOC.
 
 
+
 ## Update 1 (24/08/2023)
 * The code now makes the required **database** and the **tables**,
 * Error checking for creating the above-given parameters has also been added.
 
 
+
 ## Update 2 (24/08/2023)
 * **show_all()** will first check if the table is **empty** before unpacking the variables (to avoid unpacking errors).
+
 
 
 ## Update 3 (29/08/2023)
