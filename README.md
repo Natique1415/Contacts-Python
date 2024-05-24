@@ -3,7 +3,7 @@
 
 
 ## Libraries
-* [MySQL](https://www.mysql.com/) **Used as the database of choice**
+* [MySQL](https://www.mysql.com/) (**Used as the database of choice**)
 * [Mysql Connector](https://pypi.org/project/mysql-connector-python/)
 * [Rich](https://rich.readthedocs.io/en/stable/introduction.html)
 * [Tabulate](https://pypi.org/project/tabulate/)
