@@ -5,7 +5,7 @@ import sys
 from tabulate import tabulate
 
 
-
+# Change parameters according to your database
 config = {
     "host": "localhost",
     "user": "root",
@@ -23,7 +23,7 @@ cursor.execute(
     """
     CREATE TABLE IF NOT EXISTS user_data(
         name TEXT,
-        phone TEXT,
+        phone VARCHAR(15),
         category TEXT 
     );            
     """
@@ -39,51 +39,50 @@ def add_contacts():
     print("")
 
     name = input("Name : ").strip().title()
-    if re.search(r"\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+", name):
-        ...
-    else:
+    if not re.search(r"\b([A-ZÀ-ÿ][\w\s',.-]*[A-Za-zÀ-ÿ])\b", name):
         sys.exit("Invalid Name,Try Again Later!")
     print("")
 
+
     country_code = Prompt.ask("Country Code", default="+971").strip()
-    if re.search(r"^\+?(\d+)", country_code):
-        ...
-    else:
-        sys.exit("Invalid Country Code,Try Again Later!")
+    if not re.search(r"^\+(\d{1,3})$", country_code):
+        sys.exit("Invalid Country Code,Try Again Later!")        
     print("")
 
     phone_number = Prompt.ask("Phone Number", default="0000000000").strip()
-    if re.search(r"^[0-9\s\-()]+$", phone_number):
-        ...
-    else:
+    if not re.search(r"^\d{10}$", phone_number):
         sys.exit("Invalid Phone Number,Try Again Later!")
     print("")
 
     category = Prompt.ask("Category", default="Friend").strip().title()
-    if re.search(r"^[A-Za-z]+$", category):
-        ...
-    else:
+    if not re.search(r"^[A-Za-z]+$", category):
         sys.exit("Invalid Category,Try Again Later!")
     print("")
 
-    phone_number = f"{country_code} {phone_number}"
+    full_phone_number = f"{country_code} {phone_number}".strip()
+    if len(full_phone_number) > 15:  
+        sys.exit("Combined phone number too long. Please adhere to the format.")
 
-    cursor.execute(
-        f"""
-    INSERT INTO user_data (name, phone,category)
-    VALUES ('{name}','{phone_number}','{category}'); 
-   """
-    )
-    print("Contact Added")
-    print("")
-    db.commit()
-    cursor.close()
+    try:
+        cursor.execute(
+            f"""
+        INSERT INTO user_data (name, phone,category)
+        VALUES ('{name}','{full_phone_number}','{category}'); 
+        """
+        )
+        print("Contact Added")
+        print("")
+        db.commit()
+        cursor.close()
+    
+    except mysql.connector.Error as err:
+        print("Failed to insert data.")
 
 
 def remove_contacts():
     print("")
     name = input("Name (to remove): ").strip().title()
-    if re.search(r"\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+", name):
+    if re.search(r"\b([A-ZÀ-ÿ][\w\s',.-]*[A-Za-zÀ-ÿ])\b", name):
         cursor = db.cursor()
         cursor.execute(f"SELECT * FROM user_data WHERE name = '{name}'")
         result = cursor.fetchall()
@@ -110,7 +109,7 @@ def remove_contacts():
 def search_contacts():
     print("")
     name = input("Name (to search for): ").strip().title()
-    if re.search(r"\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+", name):
+    if re.search(r"\b([A-ZÀ-ÿ][\w\s',.-]*[A-Za-zÀ-ÿ])\b", name):
         cursor = db.cursor()
         cursor.execute(f"SELECT * FROM user_data WHERE name = '{name}'")
         result = cursor.fetchall()
@@ -144,7 +143,7 @@ def search_contacts():
 def update_number():
     print("")
     name = input("Name (to update for): ").strip().title()
-    if re.search(r"\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+", name):
+    if re.search(r"\b([A-ZÀ-ÿ][\w\s',.-]*[A-Za-zÀ-ÿ])\b", name):
         cursor = db.cursor()
         cursor.execute(f"SELECT * FROM user_data WHERE name = '{name}'")
         result = cursor.fetchall()
@@ -157,14 +156,14 @@ def update_number():
         else:
             print("")
             country_code = Prompt.ask("Country Code", default="+971").strip()
-            if re.search(r"^\+?(\d+)", country_code):
+            if re.search(r"^\+(\d{1,4})$", country_code):
                 ...
             else:
                 sys.exit("Invalid Country Code,Try Again Later!")
             print("")
 
             phone_number = Prompt.ask("Phone Number", default="0000000000").strip()
-            if re.search(r"^[0-9\s\-()]+$", phone_number):
+            if re.search(r"^\d{10}$", phone_number):
                 ...
             else:
                 sys.exit("Invalid Phone Number,Try Again Later!")
@@ -187,25 +186,15 @@ def update_number():
 
 
 def show_all():
-    #Checking if table is empty
     cursor = db.cursor()
-    cursor.execute(f"SELECT * FROM user_data")
+    cursor.execute("SELECT name, phone, category FROM user_data")  # Explicitly specify columns
     result = cursor.fetchall()
     cursor.close()
 
     if result == []:
-        print("")
-        print("Table is Currently Empty,Nothing to Display")
-        print("")
-
-
-    # Display data (if table not empty)
+        print("Table is Currently Empty, Nothing to Display")
     else:
-        name = []
-        phone = []
-        category = []
         name, phone, category = zip(*result)
-        print("")
         print(
             tabulate(
                 {"Name": name, "Phone Number": phone, "Category": category},
@@ -214,7 +203,6 @@ def show_all():
                 colalign=("center",),
             )
         )
-        print("")
 
 
 def close_server():
