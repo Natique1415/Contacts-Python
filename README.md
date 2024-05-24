@@ -35,13 +35,24 @@
 * **show_all()** will first check if the table is **empty** before unpacking the variables (to avoid unpacking errors).
 
 
-
+  
 ## Update 3 (29/08/2023)
 * Added **close_server** function to close the SQL server when the user chooses to quit the application.
 
+
+
 ## Update 4 (08/09/2023)
-* Now you can type **cls** and clear the terminal whenever you feel the need to do so.
+* Now you can type **cls** and clear the terminal whenever you need to do so.
+
+
 
 
 ## Update 5 (08/09/2023)
 * With the help of the **pyfiglet** library, Added a attractive banner called **Pycontacts**.
+
+
+
+## Update 6 (24/05/2024) 
+* Fixed some issues with the **regex patterns**,
+* Updated the **requirements.txt**,
+* Added more styling to the title "Pycontacts" and went for an 80s style. 
