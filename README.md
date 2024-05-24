@@ -8,7 +8,7 @@
 * [Rich](https://rich.readthedocs.io/en/stable/introduction.html)
 * [Tabulate](https://pypi.org/project/tabulate/)
 * [Pyfiglet ](https://pypi.org/project/pyfiglet/0.7/)
-
+* [Colorama  ](https://pypi.org/project/colorama/)
 
 
 ## Limitations  
