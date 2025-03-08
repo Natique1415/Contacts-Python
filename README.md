@@ -45,7 +45,6 @@
 
 
 
-
 ## Update 5 (08/09/2023)
 * With the help of the **pyfiglet** library, Added a attractive banner called **Pycontacts**.
 
@@ -55,3 +54,10 @@
 * Fixed some issues with the **regex patterns**,
 * Updated the **requirements.txt**,
 * Added more styling to the title "Pycontacts" and went for an 80s style. 
+
+
+
+## Update 7 (08/03/2025) 
+* Error Handling:
+
+
