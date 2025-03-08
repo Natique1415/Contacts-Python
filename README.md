@@ -58,6 +58,26 @@
 
 
 ## Update 7 (08/03/2025) 
-* Error Handling:
+### Improvements to main.py:
+  * Error Handling:
+    * Added proper exception handling with try/except blocks
+    * Ensures database connection closes properly on unexpected exits
+
+  * UI Enhancements:
+    * Added auto-reset for colorama to prevent color bleeding between outputs
+    * Added cross-platform terminal clearing support ( for  Windows and Linux/macOS systems ) 
+    * Added color for error messages
+    * Added fallback display if pyfiglet fails
+
+### Improvements to database_operations.py:
+  * Validation Functions:  
+    * Implemented a get_validated_input() function to reduce repetition
+
+  * Security Enhancements:
+    * Replaced string formatting with parameterized queries
+
+  * User Experience:
+    * Added color coding for different message types (success, warning, error)
+
 
 
