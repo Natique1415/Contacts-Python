@@ -30,8 +30,10 @@
 
 
 
+
 ## Update 2 (24/08/2023)
 * **show_all()** will first check if the table is **empty** before unpacking the variables (to avoid unpacking errors).
+
 
 
   
@@ -45,8 +47,10 @@
 
 
 
+
 ## Update 5 (08/09/2023)
 * With the help of the **pyfiglet** library, Added a attractive banner called **Pycontacts**.
+
 
 
 
@@ -57,6 +61,7 @@
 
 
 
+
 ## Update 7 (08/03/2025) 
 ### Improvements to main.py:
   * Error Handling:
@@ -64,7 +69,7 @@
     * Ensures database connection closes properly on unexpected exits
 
   * UI Enhancements:
-    * Added auto-reset for colorama to prevent color bleeding between outputs
+    * Added auto-reset for Colorama to prevent color bleeding between outputs
     * Added cross-platform terminal clearing support ( for  Windows and Linux/macOS systems ) 
     * Added color for error messages
     * Added fallback display if pyfiglet fails
